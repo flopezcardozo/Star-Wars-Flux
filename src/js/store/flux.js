@@ -1,20 +1,20 @@
+const baseUrl = "https://www.swapi.tech/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			planets: []
 		},
 		actions: {
+			getPlanets: async () => {
+				let varUrl = baseUrl + "planets/";
+				try {
+					let response = await (await fetch(varUrl)).json();
+					//let responseBody = await response.json();
+					setStore({ planets: response.results });
+				} catch (error) {
+					console.log("Error!");
+				}
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
