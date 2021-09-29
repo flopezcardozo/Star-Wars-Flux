@@ -2,7 +2,9 @@ const baseUrl = "https://www.swapi.tech/api/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			planets: []
+			planets: [],
+			people: [],
+			vehicles: []
 		},
 		actions: {
 			getPlanets: async () => {
@@ -11,6 +13,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let response = await (await fetch(varUrl)).json();
 					//let responseBody = await response.json();
 					setStore({ planets: response.results });
+				} catch (error) {
+					console.log("Error!");
+				}
+			},
+			getPeople: async () => {
+				let varUrl = baseUrl + "people/";
+				try {
+					let response = await (await fetch(varUrl)).json();
+					//let responseBody = await response.json();
+					setStore({ people: response.results });
+				} catch (error) {
+					console.log("Error!");
+				}
+			},
+			getVehicles: async () => {
+				let varUrl = baseUrl + "vehicles/";
+				try {
+					let response = await (await fetch(varUrl)).json();
+					//let responseBody = await response.json();
+					setStore({ vehicles: response.results });
 				} catch (error) {
 					console.log("Error!");
 				}
