@@ -10,34 +10,29 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
+			key={index}
+			{store.planets.map((item, index) => {
+				return (
+					
+					<div className="card" style={{ width: "18rem" }}>
+						<img src="..." className="card-img-top" alt="..." />
+						<div className="card-body">
+
 							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
+								<span>Link to: {item.name}</span>
 							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+
+						</div>
+						<br />
+						<Link to="/">
+							<button className="btn btn-primary">Back home</button>
+						</Link>
+					</div>
+				
+				),}};
+		
+
 		</div>
 	);
+
 };
