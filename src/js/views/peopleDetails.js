@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
-	const { store, actions } = useContext(Context);
+export const PeopleDetails = props => {
+	const { store } = useContext(Context);
 	const params = useParams();
 	return (
 		<div className="jumbotron">
 			<h1 className="display-4">
-				This will show the demo element: {store.planets.length > 0 && store.planets[params.theid].name}
+				This will show the demo element: {store.people.length > 0 && store.people[params.theid].name}
 			</h1>
 
 			<hr className="my-4" />
@@ -23,6 +23,4 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
-	match: PropTypes.object
-};
+PeopleDetails.propTypes = {};

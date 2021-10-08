@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
-import { Demo } from "./demo";
+import { Planets } from "../component/planets";
 import { Context } from "../store/appContext";
+import { People } from "../component/people";
+import { Vehicles } from "../component/vehicles";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="container-fluid">
-			<h2>Planets</h2>
-			<div className="row flex-row flex-nowrap">
-				<Demo />
+			<div className="row">
+				<Planets />
+				<People />
+				<Vehicles />
 				<a href="#" className="btn btn-success">
 					If you see this green button, bootstrap is working
 				</a>
