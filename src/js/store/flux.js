@@ -8,6 +8,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favourites: []
 		},
 		actions: {
+			deleteFavourite: indiceFavorito => {
+				console.log("Borrando favorito", indiceFavorito);
+				const store = getStore();
+
+				const filterFavourites = store.favourites.filter((favorito, index) => {
+					return index != indiceFavorito;
+				});
+				setStore({ favourites: filterFavourites });
+			},
 			addFavourite: favorito => {
 				const store = getStore();
 
