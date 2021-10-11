@@ -4,9 +4,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			planets: [],
 			people: [],
-			vehicles: []
+			vehicles: [],
+			favourites: []
 		},
 		actions: {
+			addFavourite: favorito => {
+				const store = getStore();
+
+				const copiaFavoritos = [...store.favourites];
+				copiaFavoritos.push(favorito);
+
+				setStore({ favourites: copiaFavoritos });
+
+				console.log("Agregando" + favorito);
+			},
 			getPlanets: async () => {
 				let varUrl = baseUrl + "planets/";
 				try {

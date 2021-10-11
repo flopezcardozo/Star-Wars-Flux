@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
 export const Planets = props => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="row">
@@ -21,9 +21,17 @@ export const Planets = props => {
 							<p>Terrain: {item.terrain}</p>
 						</div>
 						<br />
-						<Link to={"/planetDetails/" + index}>
-							<button className="btn btn-primary">Learn More</button>
-						</Link>
+						<div>
+							<Link to={"/planetDetails/" + index}>
+								<button className="btn btn-primary">Learn More</button>
+							</Link>
+							<button
+								type="button"
+								className="btn btn-secondary"
+								onClick={() => actions.addFavourite(item.name)}>
+								<i className="far fa-heart" />
+							</button>
+						</div>
 					</div>
 				);
 			})}

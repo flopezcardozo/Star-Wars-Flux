@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
 export const People = props => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="row">
@@ -23,9 +23,17 @@ export const People = props => {
 							<p>Eye Colour: {item.eye_color}</p>
 						</div>
 						<br />
-						<Link to={"/peopleDetails/" + index}>
-							<button className="btn btn-primary">Learn More</button>
-						</Link>
+						<div>
+							<Link to={"/peopleDetails/" + index}>
+								<button className="btn btn-primary">Learn More</button>
+							</Link>
+							<button
+								type="button"
+								className="btn btn-secondary"
+								onClick={() => actions.addFavourite(item.name)}>
+								<i className="far fa-heart" />
+							</button>
+						</div>
 					</div>
 				);
 			})}

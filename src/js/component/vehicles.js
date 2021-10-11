@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
 export const Vehicles = props => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="row">
@@ -21,9 +21,18 @@ export const Vehicles = props => {
 							<p>Vehicle Class: {item.vehicle_class}</p>
 						</div>
 						<br />
-						<Link to={"/vehicleDetails/" + index}>
-							<button className="btn btn-primary">Learn More</button>
-						</Link>
+
+						<div>
+							<Link to={"/vehicleDetails/" + index}>
+								<button className="btn btn-primary">Learn More</button>
+							</Link>
+							<button
+								type="button"
+								className="btn btn-secondary"
+								onClick={() => actions.addFavourite(item.name)}>
+								<i className="far fa-heart" />
+							</button>
+						</div>
 					</div>
 				);
 			})}
