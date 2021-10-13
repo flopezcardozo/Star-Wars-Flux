@@ -28,7 +28,9 @@ export const Vehicles = props => {
 							</Link>
 							<button
 								type="button"
-								className="btn btn-secondary"
+								className={
+									store.favourites.includes(item.name) ? "btn btn-warning" : "btn btn-secondary"
+								}
 								onClick={() => actions.addFavourite(item.name)}>
 								<i className="far fa-heart" />
 							</button>

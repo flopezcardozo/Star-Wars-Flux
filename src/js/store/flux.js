@@ -8,24 +8,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favourites: []
 		},
 		actions: {
-			deleteFavourite: indiceFavorito => {
-				console.log("Borrando favorito", indiceFavorito);
+			deleteFavourite: nombreFavorito => {
+				console.log("Borrando favorito", nombreFavorito);
 				const store = getStore();
 
 				const filterFavourites = store.favourites.filter((favorito, index) => {
-					return index != indiceFavorito;
+					return favorito != nombreFavorito;
 				});
 				setStore({ favourites: filterFavourites });
 			},
 			addFavourite: favorito => {
 				const store = getStore();
+				if (store.favourites.includes(favorito)) {
+					getActions().deleteFavourite(favorito);
+				} else {
+					const copiaFavoritos = [...store.favourites];
+					copiaFavoritos.push(favorito);
 
-				const copiaFavoritos = [...store.favourites];
-				copiaFavoritos.push(favorito);
+					setStore({ favourites: copiaFavoritos });
 
-				setStore({ favourites: copiaFavoritos });
-
-				console.log("Agregando" + favorito);
+					console.log("Agregando" + favorito);
+				}
 			},
 			getPlanets: async () => {
 				let varUrl = baseUrl + "planets/";

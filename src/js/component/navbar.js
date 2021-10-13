@@ -28,7 +28,7 @@ export const Navbar = () => {
 										<i
 											className="far fa-trash-alt ms-3"
 											onClick={() => {
-												actions.deleteFavourite(index);
+												actions.deleteFavourite(favorito);
 											}}
 										/>
 									</a>
