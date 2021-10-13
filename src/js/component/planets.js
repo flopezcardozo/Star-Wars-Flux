@@ -8,7 +8,7 @@ export const Planets = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="row">
+		<div className="row mt-5">
 			<h2>Planets</h2>
 			{store.planets.map((item, index) => {
 				return (

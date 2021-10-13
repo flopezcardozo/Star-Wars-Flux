@@ -8,7 +8,7 @@ export const People = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="row">
+		<div className="row mt-5">
 			<h2>People</h2>
 			{store.people.map((item, index) => {
 				return (

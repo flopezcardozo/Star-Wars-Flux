@@ -8,7 +8,7 @@ export const Vehicles = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="row">
+		<div className="row mt-5">
 			<h2>Vehicles</h2>
 			{store.vehicles.map((item, index) => {
 				return (

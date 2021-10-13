@@ -6,21 +6,6 @@ import { Context } from "../store/appContext";
 export const PeopleDetails = props => {
 	const { store } = useContext(Context);
 	const params = useParams();
-	// return (
-	// 	<div className="jumbotron">
-	// 		<h1 className="display-4">
-	// 			This will show the demo element: {store.people.length > 0 && store.people[params.theid].name}
-	// 		</h1>
-
-	// 		<hr className="my-4" />
-
-	// 		<Link to="/">
-	// 			<span className="btn btn-primary btn-lg" href="#" role="button">
-	// 				Back home
-	// 			</span>
-	// 		</Link>
-	// 	</div>
-	// );
 	return (
 		<div className="jumbotron">
 			<h1 className="display-4">{store.people.length > 0 && store.people[params.theid].name}</h1>

@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-light mb-3 fixed-top">
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
 			</Link>
