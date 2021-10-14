@@ -7,7 +7,7 @@ export const PeopleDetails = props => {
 	const { store } = useContext(Context);
 	const params = useParams();
 	return (
-		<div className="jumbotron">
+		<div className="jumbotron mt-5">
 			<h1 className="display-4">{store.people.length > 0 && store.people[params.theid].name}</h1>
 			<p>Name: {store.people.length > 0 && store.people[params.theid].name}</p>
 			<p>Height: {store.people.length > 0 && store.people[params.theid].height}</p>
